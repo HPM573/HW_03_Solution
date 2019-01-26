@@ -1,1 +1,1 @@
-# HW_3_Solution
+# Solution to Homework Assignment 3
