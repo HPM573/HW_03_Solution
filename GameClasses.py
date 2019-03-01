@@ -41,14 +41,18 @@ class Game:
 
 
 class SetOfGames:
-    def __init__(self, prob_head, n_games):
+    def __init__(self, id, prob_head):
 
+        self.id = id
+        self.probHead = prob_head
         self.gameRewards = []
         self.numLosses = 0  # number of games we lose money
 
-        for n in range(n_games):
+    def simulate(self, n_games):
+
+        for i in range(n_games):
             # create a new game
-            game = Game(id=n, prob_head=prob_head)
+            game = Game(id=self.id*n_games+i, prob_head=self.probHead)
             # simulate the game with 20 flips
             game.simulate()
             # get the reward

@@ -2,7 +2,8 @@ import GameClasses as Cls
 import SimPy.FigureSupport as Fig
 
 
-fair_games = Cls.SetOfGames(prob_head=0.5, n_games=1000)
+fair_games = Cls.SetOfGames(id=0, prob_head=0.5)
+fair_games.simulate(n_games=1000)
 print('Expected reward when the probability of head is 0.5:', fair_games.get_ave_reward())
 
 # plot the histogram
@@ -16,7 +17,8 @@ Fig.graph_histogram(
 print('Probability of loss when the probability of head is 0.5:', fair_games.get_loss_probability())
 
 
-bias_games = Cls.SetOfGames(prob_head=0.4, n_games=1000)
+bias_games = Cls.SetOfGames(id=0, prob_head=0.4)
+bias_games.simulate(n_games=1000)
 print('Expected reward when the probability of head is 0.4:', bias_games.get_ave_reward())
 
 # plot the histogram
