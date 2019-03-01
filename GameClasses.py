@@ -44,7 +44,7 @@ class SetOfGames:
     def __init__(self, prob_head, n_games):
 
         self.gameRewards = []
-        self.num_loss = 0  # number of games we lose money
+        self.numLosses = 0  # number of games we lose money
 
         for n in range(n_games):
             # create a new game
@@ -57,7 +57,7 @@ class SetOfGames:
             self.gameRewards.append(reward)
             # find if we lost in this game
             if reward < 0:
-                self.num_loss += 1
+                self.numLosses += 1
 
     def get_ave_reward(self):
         """
@@ -69,4 +69,4 @@ class SetOfGames:
         """
         :return: the proportion of games that we lost money
         """
-        return self.num_loss / len(self.gameRewards)
+        return self.numLosses / len(self.gameRewards)
