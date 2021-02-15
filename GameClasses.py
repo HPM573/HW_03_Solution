@@ -4,7 +4,6 @@ import numpy as np
 class Game:
     def __init__(self, id, prob_head):
         self.id = id
-        self.rnd = np.random.RandomState(seed=id)
         self.probHead = prob_head
         self.countWins = 0
 
@@ -13,13 +12,16 @@ class Game:
         simulates 20 coin tosses and counts the number of times {T, T, H} occurred
         """
 
+        # random number generator
+        rnd = np.random.RandomState(seed=self.id)
+
         n_consecutive_tails = 0  # number of consecutive tails so far, set to 0
 
         # flip the coin 20 times
         for i in range(20):
 
             # find if this flip resulted in head or tail
-            if self.rnd.random_sample() < self.probHead:
+            if rnd.random_sample() < self.probHead:
 
                 # if it is head, check if the last 2 tosses resulted in {T, T}
                 if n_consecutive_tails >= 2:

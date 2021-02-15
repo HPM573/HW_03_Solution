@@ -1,5 +1,5 @@
 import GameClasses as Cls
-import SimPy.FigureSupport as Fig
+import SimPy.Plots.Histogram as Hist
 
 
 fair_games = Cls.SetOfGames(id=0, prob_head=0.5)
@@ -7,9 +7,10 @@ fair_games.simulate(n_games=1000)
 print('Expected reward when the probability of head is 0.5:', fair_games.get_ave_reward())
 
 # plot the histogram
-Fig.graph_histogram(
+Hist.plot_histogram(
     data=fair_games.gameRewards,
     title='Fair Game',
+    bin_width=50,
     x_label='Game Rewards',
     y_label='Count')
 
@@ -22,9 +23,10 @@ bias_games.simulate(n_games=1000)
 print('Expected reward when the probability of head is 0.4:', bias_games.get_ave_reward())
 
 # plot the histogram
-Fig.graph_histogram(
+Hist.plot_histogram(
     data=bias_games.gameRewards,
-    title='Biased Game (Probability of Head is 0.5)',
+    title='Biased Game (Probability of Head is 0.4)',
+    bin_width=50,
     x_label='Game Rewards',
     y_label='Count')
 
